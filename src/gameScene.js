@@ -1,6 +1,3 @@
-// import { gameState } from "./gameState";
-// import lavaPlatform from '../images/lava.png';
-// import config from './config'
 // import PlatGen from './platGen'
 
 const props = { }
@@ -8,7 +5,6 @@ const props = { }
 export default class MainGame extends Phaser.Scene {
     constructor() {
         super({ key: 'gamePlay' });
-
         // this.PlatGen;
     }
 
@@ -102,8 +98,6 @@ export default class MainGame extends Phaser.Scene {
     }
 
     update() {
-
-        
         if (props.cursors.right.isDown) {
             props.player.flipX = false;
             props.player.setVelocityX(250);
@@ -117,4 +111,14 @@ export default class MainGame extends Phaser.Scene {
             props.player.anims.play('playerRun', false);
         }
     }
+
+    // jump() {
+    //     if (this.player.body.touching.down || (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps)) {
+    //         if (this.player.body.touching.down) {
+    //             this.playerJumps = 0;
+    //         }
+    //         this.player.setVelocityY(gameOptions.jumpForce * -1);
+    //         this.playerJumps++;
+    //     }
+    // }
 }

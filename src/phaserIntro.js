@@ -1,5 +1,6 @@
 import logoImg from "../images/logo.png";
-import gameState from './gameState';
+
+let gameState = { }
 
 class Intro extends Phaser.Scene {
     constructor(){

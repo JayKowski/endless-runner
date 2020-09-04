@@ -16,38 +16,27 @@ export default class MainGame extends Phaser.Scene {
 
     create() {
 
-        //add items to plat group, manualy set the object
-        //props by direct access using dot annotation
-        //example, props.platGroup.setActive, .maxSize = 10 blah blah blah...
-
-        // props.platGroup = this.physics.add.staticGroup();
-        // for(let i = 0; i < 10; i++){
-
-        // }
         props.height = this.scale.height;
         props.width = this.scale.width;
-
         this.cameras.main.setBounds(0, 0, 2000, props.height);
-        props.floor = new Phaser.Geom.Rectangle(250, 200, 300, 200);
-        props.floor.fillColor = "#CECECE";
-        console.log(props.floor)
+
+        // props.floor = new Phaser.Geom.Rectangle(250, 200, 300, 200);
+        // props.floor.fillColor = "#CECECE";
+        // // console.log(props.floor);
         this.cameras.main.setBackgroundColor("#ADD8E6");
         props.cursors = this.input.keyboard.createCursorKeys();
 
         // props.plats = this.physics.add.staticGroup();
         props.platGroup = this.physics.add.staticGroup({
-            removeCallback: function (platform) {
-                platform.scene.platPool.add(platform);
-            }
+            removeCallback: (platform) => { console.log(platform.scene.physics) }
         });
-
+    
+                            // .platPool.add(platform)
         props.platPool = this.physics.add.staticGroup({
             removeCallback: function (platform) {
                 platform.scene.platGroup.add(platform)
             }
         });
-
-        // props.preLand = this.add.image(0, 0, 'land');
 
         props.landing = this.addPlat(props.width, props.width/2);
 
@@ -58,6 +47,8 @@ export default class MainGame extends Phaser.Scene {
         props.player = this.physics.add.sprite(50, 200, 'runner');
         // props.player.setGravityY(gameOptions.playerGravity);
         props.player.setCollideWorldBounds(true);
+
+        this.input.on('pointerdown', this.jump)
 
         this.physics.add.collider(props.player, props.landing)
 
@@ -93,7 +84,7 @@ export default class MainGame extends Phaser.Scene {
             props.platGroup.add(platform);
         }
         // platform.displayWidth = platWidth;
-        this.nextPlatformDistance = Phaser.Math.Between(100, 350);
+        props.nextPlatDistance = Phaser.Math.Between(100, 350);
         return platform;
     }
 
@@ -110,15 +101,30 @@ export default class MainGame extends Phaser.Scene {
             props.player.setVelocityX(0);
             props.player.anims.play('playerRun', false);
         }
+
+        let minDistance = props.width;
+        props.platGroup.getChildren().forEach(function (platform) {
+            let platDistance = props.width - platform.x - platform.displayWidth / 2;
+            minDistance = Math.min(minDistance, platDistance);
+            if (platform.x < - platform.displayWidth / 2) {
+                props.platGroup.killAndHide(platform);
+                props.platGroup.remove(platform);
+            }
+        }, this);
+
+        if (minDistance > props.nextPlatDistance) {
+            let nextPlatWidth = Phaser.Math.Between(50, 250);
+            this.addPlat(nextPlatWidth, props.height + nextPlatWidth / 2);
+        }
     }
 
-    // jump() {
-    //     if (this.player.body.touching.down || (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps)) {
-    //         if (this.player.body.touching.down) {
-    //             this.playerJumps = 0;
-    //         }
-    //         this.player.setVelocityY(gameOptions.jumpForce * -1);
-    //         this.playerJumps++;
-    //     }
-    // }
+    jump() {
+        if (props.player.body.touching.down) {
+            // if (props.player.body.touching.down) {
+            props.playerJumps = 0;
+            // }
+            props.player.setVelocityY(100);
+            props.playerJumps++;
+        }
+    }
 }

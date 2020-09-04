@@ -1,18 +1,4 @@
-
 import Phaser from "phaser";
-
-// function cordY() {
-//     return Math.floor(Math.random() * (420 - 200) + 200);
-// }
-
-// function cordX(arg) {
-//     return Math.floor(Math.random() * (arg - 150) + 150);
-// }
-
-// function scaleX() {
-//     return (Math.random() * (0.7 - 0.3) + 0.3).toFixed(1);
-// }
-
 class PlatGen extends Phaser.Physics.Arcade.Group {
     constructor(scene, key, w) {
         super(scene.physics.world, scene);
@@ -58,7 +44,7 @@ class PlatGen extends Phaser.Physics.Arcade.Group {
                 this.platformGroup.add(platform);
             }
             platform.displayWidth = platWidth;
-            this.nextPlatformDistance = Phaser.Math.Between(100, 350);
+            this.nextPlatformDistance = Phaser.Math.Between(130, 250);
         }
     }
 

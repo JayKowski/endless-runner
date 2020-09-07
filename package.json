@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
+    "@azerion/phaser-input": "^2.0.5",
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
     "babel-loader": "^8.1.0",
@@ -35,6 +36,10 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "phaser": "^3.24.1"
+    "axios": "^0.20.0",
+    "node-fetch": "^2.6.0",
+    "phaser": "^3.24.1",
+    "phaser3-rex-plugins": "^1.1.25",
+    "regenerator-runtime": "^0.13.7"
   }
 }

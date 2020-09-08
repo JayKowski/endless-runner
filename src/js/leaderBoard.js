@@ -38,7 +38,7 @@ class LeaderBoard extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('clouds', '../../images/clouds.png');
+    this.load.image('clouds', './images/clouds.png');
     if (introState.expScore) {
       scorePostApi(introState.input.text, introState.expScore);
     }
@@ -73,9 +73,9 @@ class LeaderBoard extends Phaser.Scene {
         });
       })
       .catch((err) => this.errMessage(err));
-      this.add.text(273, introState.height - 90, 'PRESS "SHIFT" TO REFRESH', {
-        fill: "#183059",
-      });
+    this.add.text(273, introState.height - 90, 'PRESS "SHIFT" TO REFRESH', {
+      fill: '#183059',
+    });
     this.add.text(267, introState.height - 70, 'CLICK MOUSE TO GO TO START', {
       fill: '#183059',
     });
@@ -93,8 +93,8 @@ class LeaderBoard extends Phaser.Scene {
       this.scene.start('testGame');
     }
 
-    if(props.cursors.shift.isDown){
-      this.scene.start("LeaderBoard");
+    if (props.cursors.shift.isDown) {
+      this.scene.start('LeaderBoard');
     }
     this.input.on('pointerup', () => {
       this.scene.stop('LeaderBoard');

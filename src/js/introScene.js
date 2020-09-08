@@ -9,10 +9,10 @@ class Intro extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('logo', '../images/game-name.png');
-    this.load.spritesheet('runner', '../images/bunny-hop-spritesheet.png', { frameWidth: 48, frameHeight: 32 });
-    this.load.image('land', '../images/platform-2.png');
-    this.load.image('cave', '../images/cave.png');
+    this.load.image('logo', './images/game-name.png');
+    this.load.spritesheet('runner', './images/bunny-hop-spritesheet.png', { frameWidth: 48, frameHeight: 32 });
+    this.load.image('land', './images/platform-2.png');
+    this.load.image('cave', './images/cave.png');
     introState.input = new InputText(this, 220, 220, 200, 30, {
       placeholder: 'Type your name',
       color: '#ffffff',

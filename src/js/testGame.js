@@ -12,9 +12,9 @@ export default class TestGame extends Phaser.Scene {
   }
 
   preload() {
-    this.load.spritesheet('runner', '../images/bunny-hop-spritesheet.png', { frameWidth: 48, frameHeight: 32 });
-    this.load.image('land', '../images/platform-2.png');
-    this.load.image('cave', '../images/cave.png');
+    this.load.spritesheet('runner', './images/bunny-hop-spritesheet.png', { frameWidth: 48, frameHeight: 32 });
+    this.load.image('land', './images/platform-2.png');
+    this.load.image('cave', './images/cave.png');
   }
 
   create() {

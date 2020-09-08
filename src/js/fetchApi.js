@@ -1,8 +1,6 @@
 const fetch = require('node-fetch');
 
-const gameID = 'vG2Zfi8JOWxCujClMJ2Z';
-
-// creates the game in the API and get the ID
+const gameID = 'gqryhmqVkSVl5CpZzUo7';
 
 async function getApi() {
   const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameID}/scores`,

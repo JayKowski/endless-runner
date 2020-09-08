@@ -29,6 +29,8 @@ class Intro extends Phaser.Scene {
     this.logo = this.add.image(370, 120, 'logo');
     this.add.text(235, 210, 'Please Enter Your Name Below: ', { font: '18px' });
     this.add.text(280, 290, 'Click Mouse To Continue');
+    this.add.text(290, 310, 'press "SPACE" to jump');
+    this.add.text(300, 330, 'Click mouse to jump');
 
     introState.elem = introState.input.node;
     introState.elem.style.position = 'relative';

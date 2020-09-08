@@ -26,6 +26,7 @@ class Intro extends Phaser.Scene {
     introState.width = this.scale.width;
     introState.height = this.scale.height;
     this.add.image(180, 150, 'cave');
+    this.logo = this.add.image(370, 120, 'logo');
     this.add.text(235, 210, 'Please Enter Your Name Below: ', { font: '18px' });
     this.add.text(280, 290, 'Click Mouse To Continue');
 

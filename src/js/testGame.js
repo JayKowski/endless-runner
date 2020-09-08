@@ -29,7 +29,7 @@ export default class TestGame extends Phaser.Scene {
     this.anims.create({
       key: 'playerRun',
       frames: this.anims.generateFrameNumbers('runner', { start: 0, end: 3 }),
-      frameRate: 18,
+      frameRate: 20,
       repeat: -1,
     });
     this.cameras.main.setBackgroundColor('#ADD8E6');

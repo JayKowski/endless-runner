@@ -2,8 +2,6 @@
 
 ## RPG Game Phaser 3 🎮🕹
 
-<!-- INDEX -->
-
 - [Bunny Hop](#bunny-hop)
   - [RPG Game Phaser 3](#rpg-game-phaser-3)
   - [About the project](#about-the-project)
@@ -18,7 +16,6 @@
   - [Acknowledgements](#acknowledgements-🙏)
   - [Contact](#contact)
 
-<!-- ABOUT THE PROJECT -->
 
 ## About the project
 
